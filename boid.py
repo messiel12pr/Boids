@@ -16,7 +16,7 @@ class Boid:
 
 
     def update(self, boids):
-        if int(self.position.x) in range(200, screen.get_width() - 200) and int(self.position.y) in range(200, screen.get_height() - 200):
+        if int(self.position.x) in range(200, utils.screen_width - 200) and int(self.position.y) in range(200, utils.screen_height - 200):
             self.velocity += self.cohesion(boids) * utils.centering_factor
 
         self.velocity += self.alignment(boids) * utils.matching_factor
@@ -92,13 +92,13 @@ class Boid:
 
 
     def edges(self):
-        if self.position.x > screen.get_width() - self.size:
+        if self.position.x > utils.screen_width - self.size:
             self.velocity.x -= utils.turn_factor
 
         elif self.position.x < self.size:
             self.velocity.x += utils.turn_factor
 
-        if self.position.y > screen.get_height() - self.size:
+        if self.position.y > utils.screen_height - self.size:
             self.velocity.y -= utils.turn_factor
 
         elif self.position.y < self.size:
