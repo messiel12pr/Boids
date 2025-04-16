@@ -7,7 +7,8 @@ boid model is one example of a larger general concept, for which many other vari
 related work of Ichiro Aoki is noteworthy because it was published in 1982 — five years before Reynolds' boids paper.
 
 # Demo:
-[Screencast from 04-16-2025 02:21:03 PM.webm](https://github.com/user-attachments/assets/3cfc9cfc-533f-4b02-bd7f-68708aca41ed)
+![output](https://github.com/user-attachments/assets/acdec374-c8b9-404b-8be2-673d2ab6f1a1)
 
 
+# Resources:
 - Algorithm: [Boids! - Cornell University](https://people.ece.cornell.edu/land/courses/ece4760/labs/s2021/Boids/Boids.html)
