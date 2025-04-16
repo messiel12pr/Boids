@@ -9,7 +9,7 @@ screen = pygame.display.set_mode((800, 800))
 clock = pygame.time.Clock()
 running = True
 
-boids = [Boid(randrange(0, screen.get_height()), randrange(0, screen.get_height()), randrange(utils.min_speed, utils.max_speed), randrange(utils.min_speed, utils.max_speed), 3, "cyan") for _ in range(50)]
+boids = [Boid(randrange(0, screen.get_height()), randrange(0, screen.get_height()), randrange(utils.min_speed, utils.max_speed), randrange(utils.min_speed, utils.max_speed), 3, "cyan") for _ in range(150)]
 
 while running:
     # poll for events
@@ -26,7 +26,6 @@ while running:
 
     for b in boids:
         b.update(boids)
-        b.edges()
         b.draw()
 
     # flip() the display to put your work on screen
