@@ -12,8 +12,7 @@ class Boid:
         self.r = r
         self.color = color
         self.size = self.r * 2.5
-
-
+        
 
     def update(self, boids):
         if int(self.position.x) in range(200, utils.screen_width - 200) and int(self.position.y) in range(200, utils.screen_height - 200):

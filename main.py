@@ -15,6 +15,7 @@ pygame.display.set_caption('Boids Simulation')
 clock = pygame.time.Clock()
 running = True
 
+# Widget Setup
 font = pygame.font.Font('freesansbold.ttf', 18)
 
 text_1 = font.render('Max Speed', True, "white")
@@ -37,7 +38,6 @@ rect_7 = text_7.get_rect()
 rect_8 = text_8.get_rect()
 rect_9 = text_9.get_rect()
 
-# 60
 rect_1.left = 10
 rect_1.top = 10
 
@@ -94,24 +94,11 @@ centering_factor = Slider(screen, 20, 520, 80, 20, min=0.0001, max=0.001, step=0
 
 boids = [Boid(randrange(0, utils.screen_width), randrange(0, utils.screen_height), randrange(utils.min_speed, utils.max_speed), randrange(utils.min_speed, utils.max_speed), 3, "cyan") for _ in range(150)]
 
-while running:
-    # poll for events
-    # pygame.QUIT event means the user clicked X to close your window
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
 
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                running = False
-
-    screen.fill("black")
-
-    for b in boids:
-        b.update(boids)
-        b.draw()
-
-
+def widgets(boids):
+    """
+    Gets information from sliders and updates values accordingly
+    """
     v1 = max_speed.getValue()
     output_1.setText(v1)
     utils.max_speed = v1
@@ -163,11 +150,32 @@ while running:
     screen.blit(text_9, rect_9)
 
     pygame_widgets.update(event)
-    pygame.display.update()
 
+
+# Main simulation loop
+while running:
+    # poll for events
+    # pygame.QUIT event means the user clicked X to close your window
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
+
+    screen.fill("black")
+
+    for b in boids:
+        b.update(boids)
+        b.draw()
+
+    widgets(boids)
+    pygame.display.update()
 
     # flip() the display to put your work on screen
     pygame.display.flip()
+
     # limits FPS to 60
     # dt is delta time in seconds since last frame, used for framerate-
     # independent physics.

@@ -7,7 +7,7 @@ centering_factor = 0.0005
 
 turn_factor = 0.6
 protected_range = 10
-visible_range = 25
+visible_range = 50
 
 screen_width = 1200
 screen_height = 800
